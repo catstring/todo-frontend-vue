@@ -13,7 +13,6 @@
                       @completed="handleCompletedTask"
                       @removed="handleRemovedTask"
                     />
-
                     <!-- show toggle button -->
                     <div class="text-center my-3" v-show="showToggleCompletedBtn">
                         <button class="btn btn-sm btn-secondary" 
@@ -36,6 +35,7 @@
         </div>
     </main>
 </template>
+
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import { allTasks, createTask, updateTask, completeTask, removeTask } from "../http/task-api";
@@ -50,13 +50,17 @@ onMounted(async () => {
 })
 
 const uncompletedTasks = computed(() => tasks.value.filter(task => !task.is_completed))
+
 const completedTasks = computed(() => tasks.value.filter(task => task.is_completed))
+
 const showToggleCompletedBtn = computed(
     () => uncompletedTasks.value.length > 0 && completedTasks.value.length > 0
 )
+
 const completedTasksIsVisible = computed(
     () => uncompletedTasks.value.length === 0 || completedTasks.value.length > 0
 )
+
 const showCompletedTasks = ref(false)
 
 const handleAddedTask = async (newTask) => {

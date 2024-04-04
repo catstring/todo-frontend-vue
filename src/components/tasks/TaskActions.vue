@@ -8,6 +8,7 @@
         </button>
     </div>
 </template>
+
 <script setup>
 import IconPencil from "../icons/IconPencil.vue"
 import IconTrash from "../icons/IconTrash.vue"

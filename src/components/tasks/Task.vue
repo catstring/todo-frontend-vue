@@ -46,7 +46,9 @@ const props = defineProps({
 const emit = defineEmits(['updated', 'completed', 'removed'])
 
 const isEdit = ref(false)
+
 const editingTask = ref(props.task.name)
+
 const completedClass = computed(() => props.task.is_completed ? "completed" : "")
 
 const vFocus = {
