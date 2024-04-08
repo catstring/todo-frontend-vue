@@ -4,10 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode dev",
+    "start": "npx http-server ./dist",
     "build": "vite build",
+    "build:dev": "vite build --mode dev -c vite.config.ts",
     "preview": "vite preview",
-    "start": "node server.js"
+    "server": "live-server ./ --port=8081",
+    "deploy": "bash deploy.sh",
+    "lint": "eslint . --ext ts,vue,js --quiet --fix",
+    "prettier": "prettier --config .prettierrc.js --write {**/*,*}.{js,ts,vue}"
   },
   "dependencies": {
     "axios": "^1.6.7",
