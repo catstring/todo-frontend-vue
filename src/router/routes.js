@@ -15,9 +15,9 @@ const routes = [
     path: "/tasks",
     name: "tasks",
     component: TasksPage,
-    // meta: {
-    //   auth: true
-    // }
+    meta: {
+      auth: true
+    }
   },
   {
     path: "/summary",
