@@ -1,5 +1,9 @@
 import axios from "axios";
+
+    axios.defaults.withCredentials = true
+    axios.defaults.withXSRFToken = true
+
     const api = axios.create({
-    baseURL: "http://todo-app-back-laravel.test/api/v1"
+        baseURL: import.meta.env.VITE_BASE_URL,
     });
 export default api;
