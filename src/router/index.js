@@ -9,7 +9,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-    const auth = useAuthStore();
+    const store = useAuthStore();
     if (to.meta.auth && !store.isLoggedIn) {
         return { 
             name: "login",
