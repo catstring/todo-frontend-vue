@@ -20,7 +20,7 @@
                     {{ errors.password && errors.password[0] }}
                 </div>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <button class="w-100 btn btn-lg btn-success" type="submit">Login</button>
             <div class="mt-5 text-muted">
                 <div class="mt-5 text-muted" style="text-align: center;">
                     <table style="display: inline-block;">

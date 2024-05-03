@@ -24,7 +24,7 @@
                 <ul class="navbar-nav ms-auto">
                     <template v-if="!store.isLoggedIn">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary ms-2">Login</router-link>
+                            <router-link :to="{ name: 'login' }" class="btn btn-outline-success ms-2">Login</router-link>
                         </li>
                         <li class="nav-item">
                             <router-link :to="{ name: 'register' }" class="btn btn-primary ms-2">Sign up</router-link>

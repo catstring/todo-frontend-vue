@@ -9,7 +9,7 @@
                 <template v-if="!store.isLoggedIn">
                     <router-link
                     :to="{ name: 'login' }"
-                    class="btn btn-outline-secondary btn-lg px-4"
+                    class="btn btn-outline-success btn-lg px-4"
                     >Login</router-link
                     >
                     <router-link
