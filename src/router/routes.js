@@ -23,19 +23,25 @@ const routes = [
     path: "/summary",
     component: SummaryPage,
     name: "summary",
-    // meta: {
-    //   auth: true,
-    // },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: "/login",
     name: "login",
-    component: LoginPage
+    component: LoginPage,
+    meta: {
+      guest: true
+    }
   },
   {
     path: "/register",
     name: "register",
-    component: RegisterPage
+    component: RegisterPage,
+    meta: {
+      guest: true
+    }
   },
   {
     path: "/:notFound(.*)",
