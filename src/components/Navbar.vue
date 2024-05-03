@@ -2,8 +2,11 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container py-2">
             <a href="#" class="navbar-brand">
-                <span>Toddo</span>
-                <strong>List</strong>
+                <router-link :to="{ name: 'home' }" class="nav-link text-decoration-none text-dark">
+                    <span>Toddo</span>
+                    <strong>List</strong>
+                </router-link>
+                
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +27,7 @@
                             <router-link :to="{ name: 'login' }" class="btn btn-outline-secondary ms-2">Login</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'register' }" class="btn btn-danger ms-2">Register</router-link>
+                            <router-link :to="{ name: 'register' }" class="btn btn-primary ms-2">Sign up</router-link>
                         </li>
                     </template>
                     <template v-else>

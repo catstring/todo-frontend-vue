@@ -5,7 +5,7 @@
                 <span>Toddo</span>
                 <strong>List</strong>
             </h1>
-            <h2 class="h3 mb-4 fw-normal">Please sign in</h2>
+            <h2 class="h3 mb-4 fw-normal">Please login</h2>
             <div class="form-floating mb-2">
                 <input type="email" class="form-control" :class="{ 'is-invalid': errors.email && errors.email[0] }" id="email" v-model="form.email" placeholder="name@example.com" />
                 <label for="email">Email</label>
@@ -20,8 +20,24 @@
                     {{ errors.password && errors.password[0] }}
                 </div>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <div class="mt-5 text-muted">
+                <div class="mt-5 text-muted" style="text-align: center;">
+                    <table style="display: inline-block;">
+                        <tr>
+                            <td style="text-align: right;">Test Account:</td>
+                            <td style="text-align: left; padding-left: 10px">test@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">Password:</td>
+                            <td style="text-align: left; padding-left: 10px">test1234</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </form>
+
+        
     </main>
 </template>
 
