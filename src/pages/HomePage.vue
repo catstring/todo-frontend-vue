@@ -14,7 +14,7 @@
                     >
                     <router-link
                     :to="{ name: 'register' }"
-                    class="btn btn-primary btn-lg px-4 gap-3"
+                    class="btn btn-outline-primary btn-lg px-4 gap-3"
                     >Sign up</router-link
                     >
                 </template>

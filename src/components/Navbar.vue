@@ -8,11 +8,11 @@
                 </router-link>
                 
             </a>
-            <button class="navbar-toggler" :class="toggleClass2" @click.prevent="toggle2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler" :class="menuToggleClass" @click.prevent="menuToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" :class="toggleClass2" id="navbarNav">
+            <div class="collapse navbar-collapse" :class="menuToggleClass" id="navbarNav">
                 <ul class="navbar-nav" v-if="store.isLoggedIn">
                     <li class="nav-item">
                         <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
@@ -24,15 +24,15 @@
                 <ul class="navbar-nav ms-auto">
                     <template v-if="!store.isLoggedIn">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'login' }" class="btn btn-outline-success ms-2">Login</router-link>
+                            <router-link :to="{ name: 'login' }" class="nav-link">Login</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'register' }" class="btn btn-primary ms-2">Sign up</router-link>
+                            <router-link :to="{ name: 'register' }" class="nav-link ml-10">Sign up</router-link>
                         </li>
                     </template>
                     <template v-else>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" :class="toggleClass" @click.prevent="toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" :class="toggleClass" @click.prevent="logoutToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ store.user.name }}
                             </a>
                             <ul class="dropdown-menu" :class="toggleClass">
@@ -56,8 +56,8 @@ import { useAuthStore } from "@/stores/auth";
 
 const router = useRouter()
 const store = useAuthStore()
-const isOpen = ref(false)
-const isOpen2 = ref(false)
+const logoutToggleIsOpen = ref(false)
+const menuToggleIsOpen = ref(false)
 
 const logout = async () => {
     await store.handleLogout()
@@ -65,9 +65,23 @@ const logout = async () => {
     router.push({ name: 'login'})
 }
 
-const toggle = () => isOpen.value = !isOpen.value
-const toggle2 = () => isOpen2.value = !isOpen2.value
+const logoutToggle = () => logoutToggleIsOpen.value = !logoutToggleIsOpen.value
+const menuToggle = () => menuToggleIsOpen.value = !menuToggleIsOpen.value
 
-const toggleClass = computed(() => isOpen.value === true ? 'show' : '')
-const toggleClass2 = computed(() => isOpen2.value === true ? 'show' : '')
+const toggleClass = computed(() => logoutToggleIsOpen.value === true ? 'show' : '')
+const menuToggleClass = computed(() => menuToggleIsOpen.value === true ? 'show' : '')
+
+const closeDropdown = () => {
+    logoutToggleIsOpen.value = false
+    menuToggleIsOpen.value = false
+}
+router.afterEach(() => {
+  closeDropdown()
+})
 </script>
+
+<style scoped>
+.dropdown-menu {
+  width: 160px;
+}
+</style>
