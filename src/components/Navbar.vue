@@ -8,11 +8,11 @@
                 </router-link>
                 
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler" :class="toggleClass2" @click.prevent="toggle2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" :class="toggleClass2" id="navbarNav">
                 <ul class="navbar-nav" v-if="store.isLoggedIn">
                     <li class="nav-item">
                         <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
@@ -57,6 +57,7 @@ import { useAuthStore } from "@/stores/auth";
 const router = useRouter()
 const store = useAuthStore()
 const isOpen = ref(false)
+const isOpen2 = ref(false)
 
 const logout = async () => {
     await store.handleLogout()
@@ -65,6 +66,8 @@ const logout = async () => {
 }
 
 const toggle = () => isOpen.value = !isOpen.value
+const toggle2 = () => isOpen2.value = !isOpen2.value
 
 const toggleClass = computed(() => isOpen.value === true ? 'show' : '')
+const toggleClass2 = computed(() => isOpen2.value === true ? 'show' : '')
 </script>
