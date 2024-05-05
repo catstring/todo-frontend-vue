@@ -12,7 +12,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" :class="menuToggleClass" id="navbarNav">
+            <div class="collapse navbar-collapse px-4" :class="menuToggleClass" id="navbarNav">
                 <ul class="navbar-nav" v-if="store.isLoggedIn">
                     <li class="nav-item">
                         <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
@@ -35,11 +35,15 @@
                             <a class="nav-link dropdown-toggle" :class="toggleClass" @click.prevent="logoutToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ store.user.name }}
                             </a>
-                            <ul class="dropdown-menu" :class="toggleClass">
-                                <li>
-                                    <a href="#" class="dropdown-item" @click.prevent="logout">Logout</a>
-                                </li>
-                            </ul>
+                            <div class="ps-3">
+                                <ul class="dropdown-menu" :class="toggleClass">
+                                    <li>
+                                        <a href="#" class="dropdown-item" @click.prevent="logout">Logout</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            
                         </li>
                     </template>
                     
@@ -81,7 +85,7 @@ router.afterEach(() => {
 </script>
 
 <style scoped>
-.dropdown-menu {
+/* .dropdown-menu {
   width: 160px;
-}
+} */
 </style>

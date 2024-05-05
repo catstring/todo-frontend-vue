@@ -1,6 +1,6 @@
 <template>
     <main class="auth-wrapper">
-        <form class="auth-form" @submit.prevent="handleSubmit">
+        <form class="auth-form px-4" @submit.prevent="handleSubmit">
             <h1>
                 <span>ToeDoe</span>
                 <strong>List</strong>
