@@ -43,7 +43,7 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        scp -r -C -o StrictHostKeyChecking=no * ec2-user@13.211.228.65:/var/www/todo-app-front-vue/
+        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" dist/ ec2-user@13.211.228.65:/var/www/todo-app-front-vue/
         ssh -o StrictHostKeyChecking=no ec2-user@13.211.228.65 << 'EOF'
           sudo chown -R nginx:nginx /var/www/todo-app-front-vue
           sudo systemctl restart nginx
