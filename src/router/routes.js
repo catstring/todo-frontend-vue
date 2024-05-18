@@ -5,14 +5,16 @@ import SummaryPage from "../pages/SummaryPage.vue"
 import NotFoundErrorPage from "../pages/errors/NotFoundErrorPage.vue"
 import HomePage from "../pages/HomePage.vue"
 
+const base = "toddolist"
+
 const routes = [
   {
-    path: "/",
+    path: `${base}/`,
     name: "home",
     component: HomePage
   },
   {
-    path: "/tasks",
+    path: `${base}/tasks`,
     name: "tasks",
     component: TasksPage,
     meta: {
@@ -20,7 +22,7 @@ const routes = [
     }
   },
   {
-    path: "/summary",
+    path: `${base}/summary`,
     component: SummaryPage,
     name: "summary",
     meta: {
@@ -28,7 +30,7 @@ const routes = [
     },
   },
   {
-    path: "/login",
+    path: `${base}/login`,
     name: "login",
     component: LoginPage,
     meta: {
@@ -36,7 +38,7 @@ const routes = [
     }
   },
   {
-    path: "/register",
+    path: `${base}/register`,
     name: "register",
     component: RegisterPage,
     meta: {
@@ -49,5 +51,51 @@ const routes = [
     component: NotFoundErrorPage
   }
 ];
+
+
+// const routes = [
+//   {
+//     path: "/",
+//     name: "home",
+//     component: HomePage
+//   },
+//   {
+//     path: "/tasks",
+//     name: "tasks",
+//     component: TasksPage,
+//     meta: {
+//       auth: true
+//     }
+//   },
+//   {
+//     path: "/summary",
+//     component: SummaryPage,
+//     name: "summary",
+//     meta: {
+//       auth: true,
+//     },
+//   },
+//   {
+//     path: "/login",
+//     name: "login",
+//     component: LoginPage,
+//     meta: {
+//       guest: true
+//     }
+//   },
+//   {
+//     path: "/register",
+//     name: "register",
+//     component: RegisterPage,
+//     meta: {
+//       guest: true
+//     }
+//   },
+//   {
+//     path: "/:notFound(.*)",
+//     name: "error.404",
+//     component: NotFoundErrorPage
+//   }
+// ];
 
 export default routes;
