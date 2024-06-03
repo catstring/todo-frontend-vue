@@ -10,7 +10,7 @@
                     <Tasks :tasks="uncompletedTasks" />
 
                     <!-- show toggle button -->
-                    <div class="text-center my-3" v-show="showToggleCompletedBtn">
+                    <div class="text-center my-3">
                         <button class="btn btn-sm btn-secondary" 
                             @click="showCompletedTasks = !showCompletedTasks">
                             <span v-if="!showCompletedTasks">Show completed</span>
