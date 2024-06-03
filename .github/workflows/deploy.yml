@@ -31,7 +31,7 @@ jobs:
 
     - name: Install dependencies on EC2
       run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@13.55.2.38 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ec2-user@3.107.56.101 << 'EOF'
           # sudo yum update -y
           # sudo yum install -y git nginx
           sudo systemctl start nginx
@@ -43,8 +43,8 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" * ec2-user@13.55.2.38:/var/www/todo-app-front-vue/
-        ssh -o StrictHostKeyChecking=no ec2-user@13.55.2.38 << 'EOF'
+        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" * ec2-user@3.107.56.101:/var/www/todo-app-front-vue/
+        ssh -o StrictHostKeyChecking=no ec2-user@3.107.56.101 << 'EOF'
           sudo chown -R nginx:nginx /var/www/todo-app-front-vue
           sudo systemctl restart nginx
         EOF
