@@ -5,7 +5,7 @@ import SummaryPage from "../pages/SummaryPage.vue"
 import NotFoundErrorPage from "../pages/errors/NotFoundErrorPage.vue"
 import HomePage from "../pages/HomePage.vue"
 
-const base = ""
+const base = "/toddolist"
 
 const routes = [
   {
