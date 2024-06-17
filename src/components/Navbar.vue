@@ -13,14 +13,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse px-4" :class="menuToggleClass" id="navbarNav">
-                <ul class="navbar-nav" v-if="store.isLoggedIn">
+                <!-- <ul class="navbar-nav" v-if="store.isLoggedIn">
                     <li class="nav-item">
                         <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link :to="{ name: 'summary' }" class="nav-link">Summary</router-link>
                     </li>
-                </ul>
+                </ul> -->
                 <ul class="navbar-nav ms-auto">
                     <template v-if="!store.isLoggedIn">
                         <li class="nav-item">
@@ -65,7 +65,7 @@ const menuToggleIsOpen = ref(false)
 
 const logout = async () => {
     await store.handleLogout()
-    isOpen.value = false
+    logoutToggleIsOpen.value = false
     router.push({ name: 'login'})
 }
 

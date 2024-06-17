@@ -1,6 +1,6 @@
 import api from "./api"
 
-const baseURL = "/toddo-api"
+const baseURL = ""
 
 export const csrfCookie = () => api.get(`/sanctum/csrf-cookie`)
 
