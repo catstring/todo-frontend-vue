@@ -15,14 +15,15 @@
     "prettier": "prettier --config .prettierrc.js --write {**/*,*}.{js,ts,vue}"
   },
   "dependencies": {
-    "axios": "^1.6.7",
-    "bootstrap-vue": "^2.23.1",
+    "axios": "^1.7.2",
+    "bootstrap-vue-next": "^0.22.0",
     "pinia": "^2.1.7",
+    "portal-vue": "^3.0.0",
     "vue": "^3.4.15",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.3",
-    "vite": "^5.0.11"
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1"
   }
 }
