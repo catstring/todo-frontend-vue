@@ -1,8 +1,8 @@
 import api from "./api"
 
-const baseURL = ""
+const baseURL = "/toddo"
 
-export const csrfCookie = () => api.get(`/sanctum/csrf-cookie`)
+export const csrfCookie = () => api.get(`${baseURL}/sanctum/csrf-cookie`)
 
 // export const login = async (credentials) => {
 //         const response = await api.post('/auth/login', credentials);
@@ -23,7 +23,7 @@ export const register = (user) => api.post(`${baseURL}/auth/register`, user)
 // export const logout = () => api.post('/auth/logout')
 export const logout = () => {
     localStorage.removeItem('authToken'); // or sessionStorage
-    api.post('/auth/logout');
+    api.post(`${baseURL}/auth/logout`);
 }
 
 export const getUser = () => api.get(`${baseURL}/api/user`)
