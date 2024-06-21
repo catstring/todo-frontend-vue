@@ -25,10 +25,10 @@ jobs:
 
     - name: Install dependencies on EC2
       run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << EOF
             PROJECT_DIR="/var/www"
             PROJECT_NAME="todo-frontend-vue"
-            REPO_URL="https://github.com/catstring/todo-frontend-vie.git"
+            REPO_URL="https://github.com/catstring/todo-frontend-vue.git"
             
             sudo chown -R ec2-user:ec2-user \${PROJECT_DIR}
             cd \${PROJECT_DIR}
