@@ -18,12 +18,6 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build project
-      run: npm run build
-
     - name: Set up SSH
       uses: webfactory/ssh-agent@v0.5.3
       with:
@@ -32,20 +26,28 @@ jobs:
     - name: Install dependencies on EC2
       run: |
         ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << 'EOF'
-          # sudo yum update -y
-          # sudo yum install -y git nginx
-          sudo systemctl start nginx
-          sudo systemctl enable nginx
-          sudo mkdir -p /var/www/todo-app-front-vue
-          sudo chown -R ec2-user:ec2-user /var/www/todo-app-front-vue
-          sudo chmod -R 775 /var/www/todo-app-front-vue
-        EOF
+            PROJECT_DIR="/var/www"
+            PROJECT_NAME="todo-frontend-vue"
+            REPO_URL="https://github.com/catstring/todo-frontend-vie.git"
+            
+            sudo chown -R ec2-user:ec2-user \${PROJECT_DIR}
+            cd \${PROJECT_DIR}
+            
+            # Check if the directory exists
+            if [ ! -d "\${PROJECT_NAME}" ]; then
+              # Directory does not exist, clone the repository
+              sudo git clone \${REPO_URL}
+              sudo chown -R ec2-user:ec2-user \${PROJECT_NAME}
+              cd \${PROJECT_NAME}
+            else
+              # Directory exists, pull the latest changes
+              cd \${PROJECT_NAME}
+              sudo git pull
+            fi
+            
+            npm install
+            npm run build
 
-    - name: Deploy to EC2
-      run: |
-        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" * ec2-user@13.210.154.160:/var/www/todo-app-front-vue/
-        ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << 'EOF'
-          sudo chown -R nginx:nginx /var/www/todo-app-front-vue
-          sudo systemctl restart nginx
+            sudo chown -R nginx:nginx \${PROJECT_DIR}
         EOF
 

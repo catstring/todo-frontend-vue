@@ -3,8 +3,8 @@
         <div class="container py-2">
             <a href="#" class="navbar-brand">
                 <router-link :to="{ name: 'home' }" class="nav-link text-decoration-none text-dark">
-                    <span>Toddo</span>
-                    <strong>List</strong>
+                    <span>T</span>
+                    <strong>L</strong>
                 </router-link>
                 
             </a>
